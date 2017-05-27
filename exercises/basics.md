@@ -26,3 +26,58 @@ path 5: not-condition1 + condition4 + condition5
 
 logs 'Alice Bob'
 logs 'Bob Bob'
+
+# 5.
+
+the user input must be converted from strings into integers
+this can be done with parseInt.
+
+# 6.
+
+use .length method
+
+# 7, 8.
+
+function stringToSignedInteger(numberString) {
+  var values = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+                '6': 6, '7': 7, '8': 8, '9': 9};
+  var sum = 0;
+  var stringArray = numberString.split("");
+  stringArray.reverse().forEach(function(element, index) {
+    if (Object.keys(values).includes(element)) {
+      var n = values[element] * (10 ** index);
+      sum += n;
+    }
+  });
+  if (stringArray.slice(-1)[0] === '-') {
+    console.log('last if statement ran');
+    sum *= -1;
+  }
+  return sum;
+}
+
+# 9.
+
+var DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+function integerToString(integer) {
+  var string = '';
+  var remainder;
+
+  do {
+    remainder = integer % 10;
+    string = DIGITS[remainder] + string;
+    integer = Math.floor(integer / 10);
+  } while (integer > 0);
+
+  return string;
+}
+
+console.log(integerToString(4321));    // "4321"
+console.log(integerToString(0));       // "0"
+console.log(integerToString(5000));    // "5000"
+
+10.
+
+
+
