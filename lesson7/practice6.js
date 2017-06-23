@@ -143,7 +143,7 @@ function getExamSummary(examScoresPerStudent) {
   });
 }
 
-console.log(generateClassRecordSummary(studentScores));
+// console.log(generateClassRecordSummary(studentScores));
 
 // returns:
 
