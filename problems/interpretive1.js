@@ -30,7 +30,6 @@
   // each time, increment by the number (start with 0) and then negate the boolean of that switch number
   // continue until you run out of switches
 
-
 function lightsOn(n) {
   var result = [];
   var lights = initializeLights(n);
