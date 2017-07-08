@@ -1,5 +1,5 @@
 function isUrl(string) {
-  return !!string.match(/^https?:\/\/\S+$/);
+  return /^https?:\/\/\S*$/.test(string);
 }
 
 // console.log(isUrl('http://launchschool.com'));   // -> true
@@ -8,7 +8,7 @@ function isUrl(string) {
 // console.log(isUrl('   https://example.com'));    // -> false
 
 function fields(string) {
-  return string.split(/[ \t,]+/);
+  return string.split(/[ ,\t]+/);
 }
 
 // console.log(fields("Pete,201,Student"));
@@ -21,7 +21,7 @@ function fields(string) {
 // -> ['Pete', '201']
 
 function mysteryMath(string) {
-  return string.replace(/[+\-*/]/, '?');
+  return string.replace(/[+*/\-]/, '?');
 }
 
 // console.log(mysteryMath('4 + 3 - 5 = 2'));
@@ -31,7 +31,7 @@ function mysteryMath(string) {
 // -> '(4 ? 3 + 2) / 7 - 1 = 1'
 
 function mysteriousMath(string) {
-  return string.replace(/[+\-*/]/g, '?');
+  return string.replace(/[+*/\-]/g, '?');
 }
 
 // console.log(mysteriousMath('4 + 3 - 5 = 2'));           // -> '4 ? 3 ? 5 = 2'
@@ -57,18 +57,17 @@ function danish(string) {
 // -> 'I love pineapple'
 
 function formatDate(string) {
-  return string.replace(/^(\d\d\d\d)-(\d\d)-(\d\d)$/, '$3.$2.$1');
+  return string.replace(/(\d+)-(\d+)-(\d+)/, '$3.$2.$1');
 }
 
 // console.log(formatDate('2016-06-17')); // -> '17.06.2016'
 // console.log(formatDate('2016/06/17')); // -> '2016/06/17' (no change)
 
 function format_date(string) {
-  var dateRegex = /^(\d\d\d\d)([\-/])(\d\d)\2(\d\d)$/;
-  return string.replace(/(\d\d\d\d)-(\d\d)-(\d\d)/, '$3.$2.$1')
-               .replace(/(\d\d\d\d)\/(\d\d)\/(\d\d)/, '$3.$2.$1');
+  return string.replace(/(\d+)\/(\d+)\/(\d+)/, '$3.$2.$1')
+               .replace(/(\d+)-(\d+)-(\d+)/, '$3.$2.$1');
 }
 
-// console.log(format_date('2016-06-17')); // -> '17.06.2016'
-// console.log(format_date('2017/05/03')); // -> '03.05.2017'
-// console.log(format_date('2015/01-31')); // -> '2015/01-31' (no change)
+console.log(format_date('2016-06-17')); // -> '17.06.2016'
+console.log(format_date('2017/05/03')); // -> '03.05.2017'
+console.log(format_date('2015/01-31')); // -> '2015/01-31' (no change)
